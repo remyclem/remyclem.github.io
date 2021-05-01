@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Git</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-blog-template.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Accueil</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="raccourcis.html">Raccourcis</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Blog Post Content Column -->
+        <div class="col-lg-12">
+
+          <!-- Blog Post -->
+
+          <!-- Title -->
+          <h1 class="post-title">Mémento Git</h1>
+
+          <hr>
+
+          <!-- Post Content -->
+          <h3>Quelques références :</h3>
+          <ul>
+            <li>
+              <a href="https://www.miximum.fr/blog/enfin-comprendre-git/">https://www.miximum.fr/blog/enfin-comprendre-git/</a>
+              <a href="http://rogerdudler.github.io/git-guide/index.fr.html/">http://rogerdudler.github.io/git-guide/index.fr.html</a>
+            </li>
+          </ul>
+
+          <h3>Démarrer un projet</h3>
+          <ul>
+            <li>Démarrer à partir d'un projet existant :
+<pre><code>
+> git clone https://github.com/remyclem/git_sandbox.git
+</code></pre>
+            </li>
+            <li>Démarrer un nouveau projet :</li>
+<pre><code>> mkdir git_sandbox
+# initialisation du dossier
+> cd git_sandbox
+> git init
+> touch README.md  # [optional]
+> touch .gitignore  # [optional]
+# On ajoute à l'index
+> git add *
+# On commit
+> git commit -m "First commit"
+# On déclare qui est le repo distant, que l'on va appeler originpar convention
+> git remote add origin https://github.com/remyclem/Git_sandbox.git
+# On push sur le repo distant
+> git push -u origin master  # le -u est un alias pour "--set-upstream", il n'est à réaliser que lors de ce premier push
+</code></pre>
+          </ul>
+
+          <h3>Les différents espaces</h3>
+          <ul>
+            <li>Le <b>working directory</b> : ce sont les fichiers sur disque que l'on édite</li>
+            <li>La <b>staging area</b> (ou l'index)</li>
+            <li>Le <b>repo git local</b> : contient l'ensemble des commits et branches du projet</li>
+            <li>Le (ou les) <b>repo git distant</b>, soit le remote en anglais</li>
+            <li>Le schéma suivant récapitule les interactions entre ces espaces :
+              TODO : insérer image de workflow ici
+            </li>
+          </ul>
+
+
+
+
+          <h3>Versionner un changement</h3>
+          <ul>
+            <li>Le classique add / commit / push :
+<pre><code># working directory vers l'index
+> git add git_tuto/fichier.md
+# l'index vers le repo git local
+> git commit -m "Bug fix #42"
+# repo git local vers repo git distant
+> git push
+</code></pre>
+            </li>
+            <li>Déplacer / renommer / supprimer
+<pre><code># Supprimer un fichier
+> git rm fichier.txt
+# Déplacer/renommer un fichier
+> git mv fichier_source fichier_destination
+</code></pre>
+            </li>
+            <li>Changer les droits d'un fichier :
+<pre><code># Accorder le droit d'exécuter à un fichier
+git update-index --chmod=+x chemin/vers/fichier
+# retirer le droit d'exécuter
+git update-index --chmod=-x chemin/vers/fichier
+</code></pre>
+            </li>
+          </ul>
+
+          <h3>Travailler avec des branches</h3>
+          <ul>
+            <li>Afficher les branches :
+<pre><code>> git branch</code></pre>
+            </li>
+            <li>Créer une nouvelle branche
+<pre><code>> git branch nouvelle_branche
+# [alternative]
+> git checkout -b nouvelle_branche  # pour créer la nouvelle branche et de suite se positionner dessus
+</code></pre>
+              Pour la pousser sur le repo distant, la première fois il faut penser au <b>-u</b> :
+<pre><code>>git push -u origin cool_dev_in_progress</code></pre>
+            </li>
+            <li>Changer de branche</li>
+<pre><code>> git checkout autre_branche</code></pre>
+            <li>Supprimer une branche (locale ou distante)</li>
+<pre><code>> git branch -d branche_a_supprimer</code></pre>
+            <li>Fusionner deux branches
+<pre><code>> git checkout master  # master or the branch where we want to merge the new content
+> git merge dev_branch
+# Si approprié, supprimer la branche qui vient d'être mergée</code></pre>
+           </li>
+          </ul>
+
+          <h3>Tagguer une version</h3>
+          <ul>
+            <li>Afficher la liste des tags :
+<pre><code>> git tag -l</code></pre>
+            </li>
+            <li>première étape, récupérer le <i>hash</i> du commit que l'on veut taguer :
+<pre><code>> git log</code></pre>
+              Admettons que le tag soit <i>2f27bd1b578fc468b52c298d9e3740eb178bd3d3</i>, et que l'on veuille qu'il corresponde à la version <i>1.0.0</i>.
+<pre><code># Tag léger
+> git tag 1.0.0 2f27bd1b578fc468b52c298d9e3740eb178bd3d3
+# Tag annoté
+git tag -a 1.0.0 2f27bd1b578fc468b52c298d9e3740eb178bd3d3 -m "Version 1.0.0 - June 2019"</code></pre>
+            </li>
+            <li>Supprimer un tag :
+<pre><code># En local
+> git tag -d 1.0.0
+# Sur le serveur distant
+> git push --delete origin 1.0.0</code></pre>
+            </li>
+          </ul>
+
+          <h3>Compresser une série de commits avec rebase</h3>
+          <ul>
+            <li>La commande suivante permet de compresser les 3 derniers commits en un seul :
+<pre><code>git rebase -i HEAD~3  # le -i est pour <i>interactive</i></code></pre>
+            </li>
+          </ul>
+
+          <h3>Réparer les bêtises</h3>
+
+          <!-- End of Post Content -->
+
+          <hr>
+
+        </div>
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Markdown</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-blog-template.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Accueil</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="raccourcis.html">Raccourcis</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Blog Post Content Column -->
+        <div class="col-lg-12">
+
+          <!-- Blog Post -->
+
+          <!-- Title -->
+          <h1 class="post-title">Mémento Markdown</h1>
+
+          <hr>
+
+          <!-- Post Content -->
+          <h3>Les titres</h3>
+          <ul>
+            <li># Titre : Titre 1</li>
+            <li>## Titre : Titre 2</li>
+            <li>### Titre : Titre 3</li>
+            <li>etc</li>
+          </ul>
+
+          <h3>Gras, italique, barré</h3>
+          <ul>
+            <li>**text** ou __text__ : en <b>gras</b></li>
+            <li>*text* ou _text_ : en <i>italique</i></li>
+            <li>***text*** ou ___text___ : en <b><i>gras et italique</i></b></li>
+            <li>~~text~~ : <s>barré</s></li>
+          </ul>
+
+          <h3>Sauter à la ligne, paragraphes</h3>
+          <ul>
+            <li>Pour sauter à la ligne, il faut terminer la ligne avec deux espaces.</li>
+            <li>Pour écrire un nouveau paragraphe, il faut insérer une ligne vide.  <br>
+              Noter qu'une ligne avec un espace n'est pas une ligne vide pour l'interpréteur.</li>
+          </ul>
+
+          <h3>Lien hypertexte, ancre sommaire</h3>
+          <ul>
+            <li>Lien vers un projet github : <code>[lien vers un projet github](https://github.com/remyclem/Iris_classification)</code></li>
+            <li>Utiliser du code HTML fonctionne aussi, par exemple voici un lien vers une vidéo youtube : <br>
+<pre><code>&lta href="https://www.youtube.com/watch?v=3atXidqpuZs" target="_blank"&gt
+  &ltimg src="https://img.youtube.com/vi/3atXidqpuZs/0.jpg" alt="" width="240" height="180" border="10"/&gt
+&lt/a&gt</code></pre>
+            </li>
+            <li>Une ancre vers un des titre : <br>
+            <code>[Let's go back to the top](#going-to-the-next-line)</code> <br>
+            Les majuscules sont passées en minuscule et les espaces sont remplacés par des tirets.</li>
+            <li>Pour réaliser un sommaire, il suffit de commencer le fichier markdown par un ensemble de telles ancres.</li>
+          </ul>
+
+          <h3>Insérer une image</h3>
+          <ul>
+            <li>Il faut passer par du code HTML :
+<pre><code>&ltp align="center"&gt
+&ltimg src="../img/viking_tux.png"&gt
+&lt/p&gt</code></pre>
+            </li>
+          </ul>
+
+          <h3>Les puces</h3>
+          <ul>
+            <li>Pour une simple liste :
+<pre><code>* Une
+* simple
+* liste</code></pre>
+            </li>
+            <li>Pour une liste ordonnées :
+<pre><code>1. une
+2. liste
+3. ordonnée</code></pre>
+            </li>
+          </ul>
+
+          <h3>Citations</h3>
+
+          <ul>
+            <li>Se fait en commançant la ligne avec le caractère <b>&gt.</b>
+<pre><code>> Le courage n'est pas l'absence de peur,
+> mais la capacité de vaincre ce qui fait peur.
+> _Nelson Mandela_</code></pre>
+            </li>
+          </ul>
+
+          <h3>Mise en évidence de lignes de code</h3>
+
+          <ul>
+            <li>Il faut utiliser des guillemets inversées, ou backtick en anglais : <b>`</b>
+            `cd /tmp` devient <code>cd /tmp</code></p>
+            </li>
+            <li>Pour de long blocs de code, on préférera utiliser les triples guillemets inversées :
+<pre><code>```bash
+> cd tmp
+> ls -l
+```</code></pre>
+            </li>
+          </ul>
+
+          <h3>Tableau</h3>
+
+          | Date | Value 1 | Value 2 | <br>
+          | :------ |:--- | :--- | <br>
+          | 20190822_1930 | 55 | 12 | <br>
+          | 20190822_2030 | 66 | 13 | <br>
+          | 20190822_2130 | 77 | 14 | <br>
+          | 20190822_2230 | 88 | 15 |
+
+          <hr>
+
+        </div>
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>
