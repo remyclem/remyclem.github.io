@@ -154,11 +154,13 @@ git update-index --chmod=-x chemin/vers/fichier
 > git checkout -b nouvelle_branche  # pour créer la nouvelle branche et de suite se positionner dessus
 </code></pre>
               Pour la pousser sur le repo distant, la première fois il faut penser au <b>-u</b> :
-<pre><code>>git push -u origin cool_dev_in_progress</code></pre>
+<pre><code>> git push -u origin cool_dev_in_progress</code></pre>
             </li>
             <li>Changer de branche</li>
 <pre><code>> git checkout autre_branche</code></pre>
-            <li>Supprimer une branche (locale ou distante)</li>
+            <li>Supprimer une branche distante</li>
+<pre><code>> git push origin --delete branche_a_supprimer</code></pre>
+            <li>Supprimer une branche locale</li>
 <pre><code>> git branch -d branche_a_supprimer</code></pre>
             <li>Fusionner deux branches
 <pre><code>> git checkout master  # master or the branch where we want to merge the new content
