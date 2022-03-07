@@ -71,16 +71,34 @@
           <hr>
 
           <!-- Post Content -->
-          <h2>Compression / Décompression</h2>
-          <h3>tar</h3>
+          <h2>Compression / Décompression avec <b>tar</b></h2>
           <ul>
-            <li>Compression:
+            <li>Compression :
               <pre><code>tar -czvf archive.tar.gz /chemin/vers/element</code></pre>
             </li>
-            <li>Décompression:
+            <li>Décompression :
               <pre><code>tar -xzvf archive.tar.gz</code></pre>
             </li>
           </ul>
+
+          <h2>Utilisation de <b>screen</b></h2>
+          <ul>
+            <li>Créer une session :
+              <pre><code>screen -S nom_de_session</code></pre>
+            </li>
+            <li>Détacher une session :
+              <pre><code>Appuyer sur Ctrl + A + D</code></pre>
+            </li>
+            <li>Lister les sessions :
+              <pre><code>screen -list</code></pre>
+            </li>
+            <li>Attacher une session :
+              <pre><code>screen -r nom_de_session</code></pre>
+            </li>
+          </ul>
+          <li>Tuer une session :
+            <pre><code>screen -X -S nom_de_session kill</code></pre>
+          </li>
 
         </div>
       </div>
