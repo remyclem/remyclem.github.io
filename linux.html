@@ -107,6 +107,21 @@
             </li>
           </ul>
 
+          <h2><b>Find</b> suivi d'une autre commande</h2>
+          <ul>
+            <li>Supprimer tous les fichiers csv de /tmp :
+              <pre><code>find /tmp/ -name *csv -exec rm {} \;</code></pre>
+            </li>
+          </ul>
+
+          <h2>Dernier accès/modif/changement <b>stat</b></h2>
+          <ul>
+            <li>Accès : le fichier a été lu mais non modifié.</li>
+            <li>Modifié : modification du contenu.</li>
+            <li>Changé : les métadonnées ont été alterées (droits d'accès, nom de fichier,...)</li>
+            <pre><code>stat /tmp/plop.csv</code></pre>
+          </ul>
+
         </div>
       </div>
       <!-- /.row -->
